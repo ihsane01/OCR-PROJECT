@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+<body>
+  <nav    class="navbar navbar-expand-lg sticky-top " >
+    <div class="container-fluid">
+      <a class="navbar-brand" id="tu"style="font-family:  Verdana, sans-serif;font-weight:bold;">OCR</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+       <div >
+       </div>
+      </div>
+    </div>
+  </nav>
+  <!-- <input type="file" (change)="onFileSelected($event)" />
+  <button (click)="uploadImage()">Upload Image</button>
+ -->
+
+
+<div class="container center" style="margin-bottom:10%">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="white">OCR</h1>
+			<p class="white">Extract your text </p>
+		</div>
+	</div>
+
+		<div class="row" >
+			<div style="width: 50%; margin-left: 27%; ">
+				<div class="btn-container">
+
+					<h1 class="imgupload" *ngIf="!imageUrl"><i class="fa fa-file-image-o "></i></h1>
+
+					<p id="namefile" *ngIf="!imageUrl">Only pics allowed! (jpg,jpeg,bmp,png)</p>
+          <img  class="imgupload"  *ngIf="imageUrl" [src]="imageUrl" alt="Uploaded Image"  style ="margi"width="300px" height="300px">
+					<!-- <button type="button" id="btnup" class="btn btn-primary btn-lg">Browse for your pic!</button> -->
+					<!-- <input type="file" value="" name="fileup" id="fileup" > -->
+          <button type="button" id="btnup" class="btn btn-danger btn-lg " (click)="fileInput.click()">Browse for your pic!</button>
+          <input type="file" value="" name="fileup" id="fileup" #fileInput (change)="onFileSelected($event)" style="display: none;">
+        </div>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+
+				<!--the defauld disabled btn and the actual one shown only if the three fields are valid-->
+				<!-- <input type="submit" value="Submit!" class="btn btn-primary" id="submitbtn"> -->
+				<button (click)="uploadImage()" type="button" class="btn btn-danger"  id="fakebtn">Submit</button>
+			</div>
+		</div>
+		
+			<div class="row">
+				<div class="white">
+
+				<p>Total:  {{ responseMessage}}</p>
+				<p>Date :  {{datemessage}}  </p>
+				</div>
+			</div>
+		
+	<!-- </form> -->
+</div>
+
+</body>
+</html>
